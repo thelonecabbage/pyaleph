@@ -1,0 +1,16 @@
+version: '3'
+services:
+  aleph:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    ports:
+      - "5001:5001"
+    links:
+      - mongo
+  mongo:
+    image: mongo:4
+    volumes: 
+      - /data/mongodb/db:/data/db
+    ports:
+      - "27017:27017"
