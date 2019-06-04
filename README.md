@@ -53,3 +53,10 @@ A local running mongodb instance is required.
 ## Configuration
 
 TODO
+
+## Docker
+
+```bash
+cd docker
+docker-compose up
+```

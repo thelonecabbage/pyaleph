@@ -4,6 +4,8 @@ services:
     build:
       context: ../
       dockerfile: docker/Dockerfile
+    volumes:
+      - ../config.yml:/pyaleph/config.yml
     ports:
       - "5001:5001"
     links:
