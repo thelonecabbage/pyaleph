@@ -6,13 +6,26 @@ services:
       dockerfile: docker/Dockerfile
     volumes:
       - ../config.yml:/pyaleph/config.yml
-    ports:
-      - "5001:5001"
+    # ports:
+    #   - "5001:5001"
     links:
       - mongo
+      - ipfs
   mongo:
     image: mongo:4
     volumes: 
       - /data/mongodb/db:/data/db
     ports:
       - "27017:27017"
+  ipfs:
+    image: ipfs/go-ipfs:latest
+    hostname: ipfs_host1
+    entrypoint: /docker/bootstrap.ipfs.sh
+    volumes:
+      - ".:/docker/"
+      - "./data/ipfs/export:/export"
+      - "./data/ipfs:/data/ipfs"
+    ports:
+      - "5001:5001"
+      - "4001:4001"
+      - "8080:8080"

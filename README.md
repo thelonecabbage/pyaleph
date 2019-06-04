@@ -57,6 +57,7 @@ TODO
 ## Docker
 
 ```bash
+mkdir data
 cd docker
 docker-compose up
 ```
